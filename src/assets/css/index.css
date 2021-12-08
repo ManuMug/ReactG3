@@ -1,5 +1,38 @@
 
-
 .fondo-sidebar{
   background-color:#053742;
+}
+
+
+h5.card-title {
+  color: white;
+  padding: 10px;
+  text-align: center;
+  background-color: #2c3031;
+}
+
+.card-body {
+  background-color: rgb(233, 233, 233);
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+
+.contenedor-catalog {
+
+ background: url(../images/background.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ display: flex;
+ width: 100%;
+ flex-wrap: wrap;
+ justify-content: center;
+
+}
+
+.card-catalog {
+  width: 20%;
+  margin: 15px;
+  min-width: 200px;
+  
 }
