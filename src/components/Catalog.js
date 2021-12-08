@@ -1,15 +1,16 @@
 import React from 'react';
 
 
-
-
-
-
-function Catalog(){
+function Catalog({products = []}) {
+    
     return (
     
         <div>
-               Aqui va el Catalog 
+             {
+                Array.isArray(products.data) && products.data.map((product, index) =>
+                    <h2 key={index}>{product.productName}</h2>
+                    )
+            }
 
         </div>
     )

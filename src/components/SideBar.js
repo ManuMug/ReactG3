@@ -6,10 +6,26 @@ import LastProduct from './LastProduct';
 import ContactUs from './ContactUs';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+import {useEffect, useState} from "react"
 
 
 
-function SideBar(){
+
+
+function SideBar() {
+    
+  const [products, setProducts] = useState([]);
+
+  const getData = async () => {
+    await fetch('http://localhost:3020/api/products')
+    .then(response => response.json())
+      .then(data => setProducts(data));
+    }
+
+  useEffect(() => {
+  getData()    
+  }, [])
+
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
@@ -65,30 +81,12 @@ function SideBar(){
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
-            {/*<!-- End of Sidebar -->*/}
-
-            {/*<!-- Microdesafio 1 -->*/}
-            {/*<!--<Route exact path="/">
-                <ContentWrapper />
-            </Route>
-            <Route path="/Catalog">
-                <Catalog />
-            </Route>
-            <Route path="/LastProduct">
-                <LastProduct />
-            </Route>
-            <Route path="/ContactUs">
-                <ContactUs />
-            </Route>*/}
-            {/*<!-- End Microdesafio 1 -->*/}
-
-            {/*<!-- End Microdesafio 2 -->*/}
             <Switch>
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
                 <Route path="/Catalog">
-                    <Catalog />
+                    <Catalog products={products}/>
                 </Route>
                 <Route path="/LastProduct">
                     <LastProduct />
