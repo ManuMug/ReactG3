@@ -7,9 +7,7 @@ function Catalog({products = []}) {
     
         <div class=" contenedor-catalog">
              {
-                Array.isArray(products.data) && products.data.map((product, index) =>
-             
-                
+                Array.isArray(products.data) && products.data.map((product, index) =>           
                     <div class="card-catalog">   
                           <h5 class="card-title">
                             {product.productName}

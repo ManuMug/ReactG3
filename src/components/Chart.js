@@ -1,26 +1,18 @@
 import React from 'react';
 import ChartRow from './ChartRow';
+import { useState, useEffect } from 'react'
 
-let tableRowsData = [
-    {
-        Title: 'Billy Elliot ',
-        Length: '123',
-        Rating: '5',
-        Categories: ['Drama','Comedia'],
-        Awards: 2
-    },
-    {
-        Title: 'Alicia en el país de las maravillas',
-        Length: '142',
-        Rating: '4.8',
-        Categories: ['Drama','Acción','Comedia'],
-        Awards: 3
-    },
-    
-]
+function Chart() {
+    const [products, setProducts] = useState([])
+      const getProducts = async () => {
+        await fetch('http://localhost:3020/api/products')
+          .then((response) => response.json())
+          .then((data) => setProducts(data.data))
+      }
+      useEffect(() => {
+        getProducts()
+      }, [])
 
-
-function Chart (){
     return (
         /* <!-- DataTales Example --> */
         <div className="card shadow mb-4">
@@ -29,25 +21,16 @@ function Chart (){
                     <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                         <thead>
                             <tr>
-                                <th>Título</th>
-                                <th>Duración</th>
-                                <th>Rating</th>
-                                <th>Género</th>
-                                <th>Premios</th>
+                                <th>Product</th>
+                                <th>Brand</th>
+                                <th>Price</th>
+                                <th>Category</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Título</th>
-                                <th>Duración</th>
-                                <th>Rating</th>
-                                <th>Género</th>
-                                <th>Premios</th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
                             {
-                            tableRowsData.map( ( row , i) => {
+                            products.map( ( row , i) => {
                                 return <ChartRow { ...row} key={i}/>
                             })
                             }

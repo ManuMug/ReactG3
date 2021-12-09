@@ -6,15 +6,11 @@ function ContentRowCenter(){
    
     
     return (
-        <div className="row">
-            
-            {/*<!-- Last Movie in DB -->*/}
+        <div className="row">            
+            {/*<!-- Last product in DB -->*/}
             <LastProduct />
-            {/*<!-- End content row last movie in Data Base -->*/}
-
-            {/*<!-- SALE PRODUCT-->*/}
-            <SaleProduct />
-            
+            {/*<!-- Sale product in DB-->*/}
+            <SaleProduct />           
            
         </div>
     )
