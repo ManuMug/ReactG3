@@ -7,14 +7,13 @@ import ContactUs from './ContactUs'
 import NotFound from './NotFound'
 import { Link, Route, Switch } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import ContentRowTop from './ContentRowTop'
 import ContentRowCategories from './ContentRowCategories'
 
 function SideBar() {
-  const [products, setProducts] = useState([])
-  const [users, setUsers] = useState([])
+  let [products, setProducts] = useState([])
+  let [users, setUsers] = useState([])
 
-  const getUsers = async () => {
+  let getUsers = async () => {
     await fetch('http://localhost:3020/api/users')
       .then((response) => response.json())
       .then((data) => setUsers(data))
@@ -23,7 +22,7 @@ function SideBar() {
     getUsers()
   }, [])
 
-  const getProducts = async () => {
+  let getProducts = async () => {
     await fetch('http://localhost:3020/api/products')
       .then((response) => response.json())
       .then((data) => setProducts(data))
@@ -89,6 +88,7 @@ function SideBar() {
             <span>Contact Us </span>
           </Link>
         </li>
+
         {/*<!-- Nav Item - ContentRowCategories  -->*/}
         <li className="nav-item nav-link">
           <Link className="nav-link" to="/ContentRowCategories">
@@ -97,7 +97,6 @@ function SideBar() {
           </Link>
         </li>
 
-        {/*<!-- Divider -->*/}
         <hr className="sidebar-divider d-none d-md-block" />
       </ul>
       <Switch>
@@ -118,7 +117,6 @@ function SideBar() {
         </Route>
         <Route component={NotFound} />
       </Switch>
-      {/*<!-- End Microdesafio 2 -->*/}
     </React.Fragment>
   )
 }

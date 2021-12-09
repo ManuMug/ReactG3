@@ -1,56 +1,32 @@
-import React from 'react'
 import SmallCard from './SmallCard'
-import { useEffect, useState } from 'react'
 
-function ContentRowCategories() {
-  //! ingresar por props products y users
-  const [products, setProducts] = useState([])
-  const [users, setUsers] = useState([])
-
-  const getUsers = async () => {
-    await fetch('http://localhost:3020/api/users')
-      .then((response) => response.json())
-      .then((data) => setUsers(data))
-  }
-  useEffect(() => {
-    getUsers()
-  }, [])
-
-  const getProducts = async () => {
-    await fetch('http://localhost:3020/api/products')
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-  }
-  useEffect(() => {
-    getProducts()
-  }, [])
+function ContentRowCategories({ products, users, categ }) {
+  console.log(products)
 
   let productCount = {
-    title: 'Total of Products',
+    title: 'Total of Prods',
     color: 'primary',
-    cuantity: products.count,
+    cuantity: 1 /* products.count */,
     icon: 'fas fa-gift',
   }
-
-  /* <!-- Total awards --> */
 
   let userCount = {
     title: 'Total of Users',
     color: 'success',
-    cuantity: users.count,
+    cuantity: 1 /* users.count */,
     icon: 'fas fa-user',
   }
-
-  /* <!-- Actors quantity --> */
 
   let CategoryCount = {
     title: 'Total of Categories',
     color: 'warning',
-    cuantity: products.count, //! agregar total de categorías products.countByCategory.length
+    cuantity: 'un numero' /* products.countByCategory.length */,
     icon: 'fas fa-restroom',
   }
 
   let cartProps = [productCount, userCount, CategoryCount]
+
+  console.log(/* prods.countByCategory.length */)
 
   return (
     <div className="row">
