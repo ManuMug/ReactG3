@@ -55,8 +55,8 @@ function SearchMovies() {
 		},
 	]; */
 
-	const keyword = 'PELÍCULA DEMO';
-
+	/* const keyword = 'PELÍCULA DEMO';
+ */
 
 
 	return (

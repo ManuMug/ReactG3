@@ -3,3 +3,13 @@
 .fondo-sidebar{
   background-color:#053742;
 }
+
+
+.contact-us{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 300px;
+  width: 100%;
+}
