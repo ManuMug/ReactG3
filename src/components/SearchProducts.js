@@ -57,7 +57,7 @@ function SearchProducts() {
               products.map((movie, i) => {
                 console.log(movie.pathImg)
                 return (
-                  <div className="col-sm-6 col-md-3 my-4" key={i}>
+                  <div className="col-sm-12 col-md-6 my-4" key={i}>
                     <div className="card shadow mb-4">
                       <div className="card-header py-3">
                         <h5 className="m-0 font-weight-bold text-gray-800">

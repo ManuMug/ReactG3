@@ -42,3 +42,12 @@ h5.card-title {
   margin: 15px;
   min-width: 200px;  
 }
+
+.card-prodSelect {
+  min-height:80px;
+  
+}
+
+.card-prodSelect h5 {
+  text-align: center;
+}

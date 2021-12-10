@@ -3,26 +3,34 @@ import { useState, useEffect } from 'react'
 /* SE PODRIA MANDAR PROPS DESDE CONTENTROWCENTER */
 function SaleProduct(){
           const [products, setProducts] = useState([])
-          const getProducts = async () => {
-            await fetch('http://localhost:3020/api/products/7') //! arreglar lógica
+          const getProducts = () => {
+            fetch('http://localhost:3020/api/products') 
               .then((response) => response.json())
-              .then((data) => setProducts(data))
+              .then((products) => setProducts(products.data))
           }
           useEffect(() => {
             getProducts()
           }, [])
+    
+
+    let orderProducts = products.sort(function(a, b){
+          return a.price - b.price
+          });
+    let sale = orderProducts[0]  
+    console.log(sale)
 
     return (
+
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
-                <div className="card-header py-3">
-                    <h5 className="m-0 font-weight-bold text-gray-800">Sale Product: {products.productName}</h5>
+                <div className="card-header py-3 card-prodSelect" >
+                    <h5 className="m-0 font-weight-bold text-gray-800">Sale Product: {sale?.productName || "loading..."}</h5>
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={products.pathImg} alt={products.productName}/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={sale?.pathImg || "loading..."} alt={sale?.productName || "loading..."}/>
                     </div>
-                    <p>{products.description}</p>
+                    <p>{sale?.description || "loading..."}</p>
                 </div>
             </div>
         </div>
