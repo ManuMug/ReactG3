@@ -1,28 +1,53 @@
-import SmallCard from './SmallCard'
+  import React from 'react'
+  import SmallCard from './SmallCard'
+  import { useEffect, useState } from 'react'
 
-function ContentRowCategories({ products, users, categ }) {
-  console.log(products)
+  function ContentRowCategories() {
+    //! ingresar por props products y users
+    const [products, setProducts] = useState([])
+    const [users, setUsers] = useState([])
 
-  let productCount = {
-    title: 'Total of Prods',
-    color: 'primary',
-    cuantity: 1 /* products.count */,
-    icon: 'fas fa-gift',
-  }
+    const getUsers = () => {
+      fetch('http://localhost:3020/api/users')
+        .then((response) => response.json())
+        .then((data) => setUsers(data))
+    }
+    useEffect(() => {
+      getUsers()
+    }, [])
 
-  let userCount = {
-    title: 'Total of Users',
-    color: 'success',
-    cuantity: 1 /* users.count */,
-    icon: 'fas fa-user',
-  }
+    const getProducts = () => {
+       fetch('http://localhost:3020/api/products')
+        .then((response) => response.json())
+        .then((data) => setProducts(data))
+    }
+    useEffect(() => {
+      getProducts()
+    }, [])
 
-  let CategoryCount = {
-    title: 'Total of Categories',
-    color: 'warning',
-    cuantity: 'un numero' /* products.countByCategory.length */,
-    icon: 'fas fa-restroom',
-  }
+    let productCount = {
+      title: 'Total of Products',
+      color: 'primary',
+      cuantity: products.count || "loading...",
+      icon: 'fas fa-gift',
+    }
+
+    /* <!-- Total awards --> */
+
+    let userCount = {
+      title: 'Total of Users',
+      color: 'success',
+      cuantity: users.count || 3,
+      icon: 'fas fa-user',
+    }
+    /* <!-- Actors quantity --> */
+
+    let CategoryCount = {
+      title: 'Total of Categories',
+      color: 'warning',
+      cuantity: products.countByCategory?.length || 2, //! agregar total de categorías products.countByCategory.length
+      icon: 'fas fa-restroom',
+    }
 
   let cartProps = [productCount, userCount, CategoryCount]
 

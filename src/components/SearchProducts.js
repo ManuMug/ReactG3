@@ -7,10 +7,9 @@ function SearchProducts() {
   let keyword = useRef()
 
   useEffect(() => {
-    fetch('http://localhost:3020/api/products/search?keyword=nike')
+    fetch('http://localhost:3020/api/products/')
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
       })
   })
 

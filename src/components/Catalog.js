@@ -10,14 +10,14 @@ function Catalog({ products = [] }) {
             <img
               src={product.pathImg}
               className="card-img-top"
-              alt="imagen de zapatillas"
+              alt={product.productName}
             />
             <div className="card-body">
               <p className="card-text">
-                <strong>Price</strong> $ {product.price}{' '}
+                <strong>Price</strong> $ {product.price}
               </p>
               <p className="card-text">
-                <strong>Brand</strong> {product.brand}{' '}
+                <strong>Brand</strong> {product.brand}
               </p>
             </div>
           </div>
