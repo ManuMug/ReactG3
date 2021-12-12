@@ -51,3 +51,11 @@ h5.card-title {
 .card-prodSelect h5 {
   text-align: center;
 }
+
+.contact-us{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
