@@ -1,11 +1,17 @@
 import React from "react";
 import emailjs from "emailjs-com";
+import Swal from 'sweetalert2'
 
 /* service_yiy8djs */
 
 function ContactUs(props) {
   const sendEmail = (e) => {
     e.preventDefault();
+    Swal.fire(
+      'Good job!',
+      'Message send!',
+      'success'
+    )
 
     emailjs
       .sendForm(
