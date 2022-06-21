@@ -19,7 +19,11 @@
     const getProducts = () => {
        fetch('http://localhost:3020/api/products')
         .then((response) => response.json())
-        .then((data) => setProducts(data))
+        .then((data)=>{
+          console.log(data)
+          setProducts(data)
+          })
+  
     }
     useEffect(() => {
       getProducts()

@@ -7,8 +7,8 @@ import SideBar from './SideBar';
   return (
     <React.Fragment>
       <div id="wrapper">
-          <SideBar />
-        </div>
+        <SideBar />
+      </div>
     </React.Fragment>
   );
 }

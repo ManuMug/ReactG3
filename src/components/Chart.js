@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 function Chart() {
     const [products, setProducts] = useState([])
       const getProducts = async () => {
-        await fetch('http://localhost:3020/api/products')
+        await fetch('http://localhost:3020/api/products/products')
           .then((response) => response.json())
           .then((data) => setProducts(data.data))
       }
